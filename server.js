@@ -1,14 +1,15 @@
 const express = require('express');
 const app = express();
-const ejs = require(ejs);
-app.set('view engine', 'ejs')
-const port = 9000;
+const ejs = require("ejs");
+const port = 9001;
 
-app.use(express.static('public'));
-app.use('/assets', express.static('express'));
+
+app.set('view engine', 'ejs');
+app.use(express.static('views'));
+app.use('/assets', express.static('assets'));
 
 app.get('/', (req, res)=>{
-    res.send(' this page is active ')
+    res.render('index')
 })
 
 app.listen(port, (req, res)=>{
